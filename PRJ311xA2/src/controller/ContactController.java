@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.util.List;
@@ -42,8 +43,15 @@ public class ContactController {
     }
     //do corresponding actions for search, delete, update and add contact
     public void searchContact(ActionEvent evt) throws Exception{
-        throw new UnsupportedOperationException("Remove this line and implement your code here!");
-
+        if (evt.getSource() == btnAdd){
+            addContact();
+        } else if (evt.getSource() == btnDelete) {
+            deleteContact();
+        } else if (evt.getSource() == btnUpdate) {
+            updateContact();
+        } else if (evt.getSource() == btnGroup) {
+            groupPanel();
+        }
     }
     //manage the groups
     public void groupPanel() throws Exception{
@@ -51,7 +59,8 @@ public class ContactController {
         loader.setLocation(getClass().getResource("../ui/group.fxml"));
         Parent root = loader.load();
 
-        Stage stage = (Stage) mainAnchorPane.getScene().getWindow();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
 
         stage.setScene(new Scene(root));
         stage.show();
@@ -62,7 +71,8 @@ public class ContactController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("../ui/updateContact.fxml"));
         Parent root = loader.load();
-        Stage stage = (Stage) mainAnchorPane.getScene().getWindow();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(new Scene(root));
         stage.setTitle("Update contact");
         stage.show();
@@ -75,12 +85,13 @@ public class ContactController {
         Optional<ButtonType> option = alert.showAndWait();
     }
 
-    public void addContact(ActionEvent event) throws Exception {
+    public void addContact() throws Exception {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("../ui/addContact.fxml"));
         Parent root = loader.load();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
 
         stage.setScene(new Scene(root));
         stage.setTitle("Add contact");

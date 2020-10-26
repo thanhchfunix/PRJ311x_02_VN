@@ -7,9 +7,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="controller.ServerController"
             prefHeight="400.0" prefWidth="600.0">
-    <children>
-        <TextArea fx:id="txtContent" prefHeight="344.0" prefWidth="600.0"></TextArea>
-        <TextField fx:id="txtMessage" layoutY="359.0" prefWidth="510.0" prefHeight="27.0"/>
-        <Button fx:id="btnSend" layoutX="527.0" layoutY="359.0" mnemonicParsing="false" text="Send"/>
-    </children>
+    <TextArea fx:id="txtContent" prefHeight="344.0" prefWidth="600.0"/>
+    <TextField fx:id="txtMessage" layoutY="359.0" prefWidth="510.0" prefHeight="27.0"/>
+    <Button fx:id="btnSend" layoutX="527.0" layoutY="359.0" mnemonicParsing="false" text="Send"/>
 </AnchorPane>

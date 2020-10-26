@@ -15,19 +15,19 @@
                 <Font size="20" style="bold" />
             </font>
         </Label>
-        <Label layoutX="24.0" layoutY="44.0" prefHeight="17.0" prefWidth="96.0" text="First Name" />
-        <TextField layoutX="223.0" layoutY="40.0" prefHeight="25.0" prefWidth="283.0" />
-        <Label layoutX="24.0" layoutY="84.0" prefHeight="17.0" prefWidth="96.0" text="Last Name" />
-        <TextField layoutX="223.0" layoutY="80.0" prefHeight="25.0" prefWidth="283.0" />
-        <Label layoutX="24.0" layoutY="123.0" prefHeight="17.0" prefWidth="96.0" text="Phone" />
-        <TextField layoutX="223.0" layoutY="119.0" prefHeight="25.0" prefWidth="283.0" />
-        <Label layoutX="24.0" layoutY="168.0" prefHeight="17.0" prefWidth="96.0" text="Email" />
-        <TextField layoutX="223.0" layoutY="164.0" prefHeight="25.0" prefWidth="283.0" />
-        <Label layoutX="24.0" layoutY="210.0" prefHeight="17.0" prefWidth="96.0" text="Birth date" />
-        <DatePicker layoutX="223.0" layoutY="206.0" prefHeight="25.0" prefWidth="308.0" />
-        <Label layoutX="24.0" layoutY="254.0" text="Group" />
-        <ComboBox layoutX="223.0" layoutY="250.0" prefHeight="25.0" prefWidth="199.0" promptText="Family" />
-        <Button layoutX="24.0" layoutY="314.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="58.0" text="Save" />
-        <Button layoutX="120.0" layoutY="314.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="58.0" text="Close" />
+        <Label fx:id="lblFirstName" layoutX="24.0" layoutY="44.0" prefHeight="17.0" prefWidth="187.0" text="First Name" />
+        <TextField fx:id="firstName" layoutX="223.0" layoutY="40.0" prefHeight="25.0" prefWidth="283.0" />
+        <Label fx:id="lblLastName" layoutX="24.0" layoutY="84.0" prefHeight="17.0" prefWidth="187.0" text="Last Name" />
+        <TextField fx:id="lastName" layoutX="223.0" layoutY="80.0" prefHeight="25.0" prefWidth="283.0" />
+        <Label fx:id="lblPhone" layoutX="24.0" layoutY="123.0" prefHeight="17.0" prefWidth="187.0" text="Phone" />
+        <TextField fx:id="phone" layoutX="223.0" layoutY="119.0" prefHeight="25.0" prefWidth="283.0" />
+        <Label fx:id="lblEmail" layoutX="24.0" layoutY="168.0" prefHeight="17.0" prefWidth="187.0" text="Email" />
+        <TextField fx:id="email" layoutX="223.0" layoutY="164.0" prefHeight="25.0" prefWidth="283.0" />
+        <Label fx:id="lbldob" layoutX="24.0" layoutY="210.0" prefHeight="17.0" prefWidth="187.0" text="Birth date" />
+        <DatePicker fx:id="dob" layoutX="223.0" layoutY="206.0" prefHeight="25.0" prefWidth="308.0" />
+        <Label layoutX="24.0" layoutY="254.0" prefHeight="17.0" prefWidth="187.0" text="Group" />
+        <ComboBox fx:id="cbGroup" layoutX="223.0" layoutY="250.0" prefHeight="25.0" prefWidth="199.0" promptText="Family" />
+        <Button fx:id="btnAdd" layoutX="24.0" layoutY="314.0" mnemonicParsing="false" onAction="#updateContact" prefHeight="37.0" prefWidth="58.0" text="Save" />
+        <Button fx:id="btnClose" layoutX="120.0" layoutY="314.0" mnemonicParsing="false" onAction="#updateContact" prefHeight="37.0" prefWidth="58.0" text="Close" />
     </children>
 </AnchorPane>
