@@ -13,7 +13,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../ui/ServerBox.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../ui/ChatBox.fxml"));
         primaryStage.setTitle("Server Application");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();

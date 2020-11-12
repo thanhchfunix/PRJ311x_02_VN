@@ -1,5 +1,3 @@
-John           :Snow           :84987234123:john@gmail.com           :12-31-1987:Family    
-Adam           :Smith          :84980720100:adam.smithn@gmail.com    :1990-07-22:Friend    
-Jean           :Tonogbanua     :85231678987:jean@yahoo.com           :9-9-1993  :Family    
-An             :Ha             :84123098345:AnHa@gmail.com           :0017-08-31:Friend    
-David          :Beckhamp       :0977123456:david.beck@gmail.com     :0009-07-04:Funix     
+thanh          :huy            :12345678  :thanh@gmail.com          :0030-07-29:Funix     
+Dav            :Beckham        :0001234   :david@gmail.com          :0173-04-09:Funix     
+Huu Thang      :Nguyen         :0977432234:huuthang@gmail.com       :1991-11-06:Friend    

@@ -7,20 +7,13 @@ package business;
 
 import com.entity.Server;
 import javafx.scene.control.TextArea;
-import lombok.Data;
-
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.Socket;
 
-/**
- *
- * @author TrongDuyDao
- */
-@Data
+
 public class ClientThread implements Runnable, Serializable {
 
     //for I/O
@@ -62,4 +55,43 @@ public class ClientThread implements Runnable, Serializable {
             txtContent.appendText("\nMe:" + line);
     }
 
+    public DataInputStream getDis() {
+        return dis;
+    }
+
+    public void setDis(DataInputStream dis) {
+        this.dis = dis;
+    }
+
+    public DataOutputStream getDos() {
+        return dos;
+    }
+
+    public void setDos(DataOutputStream dos) {
+        this.dos = dos;
+    }
+
+    public Socket getSocket() {
+        return socket;
+    }
+
+    public void setSocket(Socket socket) {
+        this.socket = socket;
+    }
+
+    public Server getServer() {
+        return server;
+    }
+
+    public void setServer(Server server) {
+        this.server = server;
+    }
+
+    public TextArea getTxtContent() {
+        return txtContent;
+    }
+
+    public void setTxtContent(TextArea txtContent) {
+        this.txtContent = txtContent;
+    }
 }

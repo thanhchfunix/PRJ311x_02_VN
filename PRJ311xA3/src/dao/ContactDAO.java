@@ -71,14 +71,4 @@ public class ContactDAO {
         }
         return ct;
     }
-    //return a list of Contact who is in a given group
-    public  List<Contact> contactByGroup(List<Contact> c, String group) {
-        if (group.equals("All")) return c;
-        List<Contact> ct = new Vector<>();
-        for (Contact x: c) {
-            String s = x.getGroup().toLowerCase();
-            if (s.contains(group.toLowerCase())) ct.add(x);
-        }
-        return ct;
-    }
 }

@@ -14,7 +14,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -63,9 +62,9 @@ public class ContactController {
             group.setCellValueFactory(new PropertyValueFactory<>("group"));
             tblContact.getColumns().add(group);
             //get all groups
-            showGroup(new GroupDAO().loadGroup(GROUP));
+            this.showGroup((new GroupDAO()).loadGroup(GROUP));
             //output contacts to tblContact
-            showContact(contacts);
+            showContact(this.contacts);
             tblContact.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -76,10 +75,10 @@ public class ContactController {
     }
 
     //output all contact to tblContact
-    public  void showContact(List<Contact> c) {
+    public void showContact(List<Contact> c) {
         //clear old data
         tblContact.getItems().clear();
-        String group = cbGroup.getSelectionModel().getSelectedItem().getName();
+        String group = ((Group)this.cbGroup.getSelectionModel().getSelectedItem()).getName();
         //output contacts in "c" to tableview
         if (group.equals("All")) {
             for (Contact x: c) {
@@ -92,7 +91,7 @@ public class ContactController {
         }
     }
     //output all groups to dropdownlist
-    public  void showGroup(List<Group> g) {
+    public void showGroup(List<Group> g) {
         cbGroup.getItems().clear();
         cbGroup.getItems().add(new Group("All"));
         for (Group x: g) {
@@ -184,18 +183,6 @@ public class ContactController {
         }
     }
 
-    //filter contact
-    public void filterContact() {
-        try {
-            contacts = contactDAO.loadContact("data/contact.txt");
-            for (Contact x: contacts) {
-                if (x.getGroup().equals(cbGroup.getValue().toString())) contacts.remove(x);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        showContact(contacts);
-    }
     //update contact groups
     public void updateContactgroup(String oldGroup, String newGroup) {
         try {

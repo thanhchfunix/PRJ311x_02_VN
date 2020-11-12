@@ -27,16 +27,17 @@ public class UpdateContactController {
     @FXML
     private Label lblFirstName, lblLastName, lblPhone, lblEmail, lbldob;
     @FXML
-    private Button btnAdd, btnClose;
+    private Button btnAdd;
+    @FXML
+    private Button btnClose;
+    private List<Contact> contacts;
+    private Contact updatedContact;
 
     private ContactController contactController;
 
     public void  setContactController(ContactController contactController) {
         this.contactController = contactController;
     }
-
-    private List<Contact> contacts;
-    private Contact updatedContact;
 
     public  void setContacts(List<Contact> contacts) {
         this.contacts = contacts;
@@ -81,25 +82,25 @@ public class UpdateContactController {
     }
 
     public  void saveContact() throws Exception {
-        String fname = firstName.getText().trim();
+        String fname = this.firstName.getText().trim();
         if (fname.isEmpty()) {
             lblFirstName.setText("First name can not be empty");
             return;
         }
         lblFirstName.setText("");
-        String lname = lastName.getText().trim();
+        String lname = this.lastName.getText().trim();
         if (lname.isEmpty()) {
             lblLastName.setText("Last name can not be empty");
             return;
         }
         lblLastName.setText("");
-        String mobile = phone.getText().trim();
+        String mobile = this.phone.getText().trim();
         if (mobile.isEmpty() || !mobile.matches("\\d+")) {
             lblPhone.setText("Phone contains digit only");
             return;
         }
         lblPhone.setText("");
-        String mail = email.getText().trim();
+        String mail = this.email.getText().trim();
         Pattern emailNamePtrn = Pattern.compile("^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[_A-Za-z0-9]+(\\.[_A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
         Matcher mtch = emailNamePtrn.matcher(mail);
         if (!mtch.matches()) {
@@ -107,12 +108,12 @@ public class UpdateContactController {
             return;
         }
         lblEmail.setText("");
-        String birthdate = (dob.getValue().toString());
+        String birthdate = (this.dob.getValue().toString());
         String group = cbGroup.getSelectionModel().getSelectedItem().getName();
         Contact c = new Contact(fname, lname, mobile, mail, birthdate, group);
-        int i = contactController.contactDAO.indexOf(contacts, updatedContact);
-        int j = contactController.contactDAO.indexOf(contacts, c);
-        if (i == j) {
+        int i = this.contactController.contactDAO.indexOf(this.contacts, this.updatedContact);
+        int j = this.contactController.contactDAO.indexOf(this.contacts, c);
+        if (j == -1 || i == j) {
             contactController.contactDAO.updateContact(contacts, c, i);
             contactController.showContact(contacts);
             contactController.contactDAO.saveToFile(contacts, "data/contact.txt");//update datasources

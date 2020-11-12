@@ -1,7 +1,6 @@
 package dao;
 
 
-import entity.Contact;
 import entity.Group;
 
 import java.io.*;

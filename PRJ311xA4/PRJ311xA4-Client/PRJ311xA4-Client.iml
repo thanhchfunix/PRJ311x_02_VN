@@ -8,6 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="ChatLib" level="project" />
-    <orderEntry type="library" name="lombok-plugin-0.30-2020.2" level="application" />
+    <orderEntry type="library" name="ChatLib1" level="project" />
   </component>
 </module>

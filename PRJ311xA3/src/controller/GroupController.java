@@ -45,13 +45,10 @@ public class GroupController {
             showGroup(groups);
             tblGroup.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
             tblGroup.getSelectionModel().selectedItemProperty()
-                    .addListener(new ChangeListener<Group>() {
-                        @Override
-                        public void changed(ObservableValue<? extends Group> observable, Group oldValue, Group newValue) {
-                            //output selected group name to textfield
-                            if (tblGroup.getSelectionModel().getSelectedItem() != null) {
-                                groupName.setText(tblGroup.getSelectionModel().getSelectedItem().getName());
-                            }
+                    .addListener((observable, oldValue, newValue) -> {
+                        //output selected group name to textfield
+                        if (tblGroup.getSelectionModel().getSelectedItem() != null) {
+                            groupName.setText(tblGroup.getSelectionModel().getSelectedItem().getName());
                         }
                     });
         } catch (Exception e) {
@@ -65,6 +62,11 @@ public class GroupController {
     public  void searchAction() {
         List<Group> g = groupDAO.search(groups, search.getText());
         showGroup(g);
+    }
+
+    //filter action
+    public void filterGroup(Group g) {
+
     }
 
     //add new group action
@@ -184,8 +186,8 @@ public class GroupController {
     //output all groups to table view
     public  void showGroup(List<Group> groups) {
         //clear old data
-        tblGroup.getItems().clear();
         if (tblGroup.getItems() != null) {
+            tblGroup.getItems().clear();
             for (Group g: groups) {
                 tblGroup.getItems().add(g);
             }

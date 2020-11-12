@@ -12,7 +12,7 @@
     <children>
         <Label layoutX="24.0" layoutY="6.0" prefHeight="30.0" prefWidth="186.0" text="Add a new contact">
             <font>
-                <Font size="20" style="bold" />
+                <Font size="20"/>
             </font>
         </Label>
         <Label fx:id="lblFirstName" layoutX="24.0" layoutY="44.0" prefHeight="17.0" prefWidth="96.0" text="First Name" />
